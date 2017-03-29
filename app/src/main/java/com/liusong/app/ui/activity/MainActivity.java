@@ -8,7 +8,6 @@ import android.view.View;
 
 import com.liusong.app.R;
 import com.liusong.app.databinding.ActivityMainBinding;
-import com.liusong.app.ui.activity.softkeyboard.KeyBoardMainActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private ActivityMainBinding mBinding;
@@ -24,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent=new Intent();
         switch (v.getId()){
             case R.id.btn_keyboard_main:
-                intent.setClass(this, KeyBoardMainActivity.class);
+                intent.setClass(this, KeyboardInActivity.class);
                 break;
             default:
                 break;

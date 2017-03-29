@@ -21,18 +21,8 @@
         </activity>
         <!--软键盘-->
         <activity
-            android:name=".ui.activity.softkeyboard.KeyBoardMainActivity"
-            android:label="软键盘"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.softkeyboard.KeyboardInActivity"
+            android:name=".ui.activity.KeyboardInActivity"
             android:label="Activity中监听软键盘显隐"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.softkeyboard.KeyboardInFragmentActivity"
-            android:label="Fragment中监听软键盘显隐"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
     </application>
