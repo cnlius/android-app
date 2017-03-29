@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--软键盘自适应-->
+        <item name="android:windowSoftInputMode">adjustPan|stateAlwaysHidden</item>
     </style>
 
 </resources>
