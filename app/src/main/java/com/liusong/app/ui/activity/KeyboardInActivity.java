@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.liusong.app.R;
 import com.liusong.app.databinding.ActivityKeyboardInBinding;
-import com.liusong.app.utils.KeyboardUtils;
+import com.liusong.library.utils.Utils;
 
 /**
  * Created by liu song on 2017/3/29.
@@ -86,8 +86,8 @@ public class KeyboardInActivity extends AppCompatActivity {
     public boolean dispatchTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             View v = getCurrentFocus();
-            if (KeyboardUtils.isShouldHideKeyboard(v, event)) {
-                KeyboardUtils.hideKeyboard(this, v.getWindowToken());
+            if (Utils.isShouldHideKeyboard(v, event)) {
+                Utils.hideKeyboard(this, v.getWindowToken());
             }
         }
         return super.dispatchTouchEvent(event);
