@@ -21,6 +21,12 @@
         </activity>
         <!--软键盘-->
         <activity
+            android:name=".ui.activity.ConstraintLayoutActivity"
+            android:label="constraint"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!--软键盘-->
+        <activity
             android:name=".ui.activity.KeyboardInActivity"
             android:label="Activity中监听软键盘显隐"
             android:configChanges="orientation|screenSize|keyboardHidden"
