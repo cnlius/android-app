@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.liusong.app">
+    package="com.ls.test">
 
     <application
         android:allowBackup="true"
@@ -10,28 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.MainActivity"
-            android:label="首页"
-            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--软键盘-->
-        <!--软键盘-->
         <activity
-            android:name=".ui.activity.KeyboardInActivity"
-            android:label="Activity中监听软键盘显隐"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait" />
-
-        <!--IPC-->
-        <activity
-            android:name=".ui.activity.IPCActivity"
-            android:label="IPC"
-            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:name=".ipc.IPCTargetActivity"
+            android:label="IPC目标页面"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:screenOrientation="portrait" />
     </application>
 
