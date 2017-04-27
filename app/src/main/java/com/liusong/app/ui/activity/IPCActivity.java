@@ -13,20 +13,19 @@ import com.liusong.app.databinding.ActivityIpcBinding;
  * Created by liu song on 2017/4/27.
  */
 
-public class IPCActivity extends AppCompatActivity implements View.OnClickListener{
+public class IPCActivity extends AppCompatActivity implements View.OnClickListener {
     private ActivityIpcBinding mBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding= DataBindingUtil.setContentView(this, R.layout.activity_ipc);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_ipc);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_to_target_activity:
-
                 break;
             default:
                 break;
