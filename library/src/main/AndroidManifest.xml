@@ -8,7 +8,7 @@
         android:supportsRtl="true">
 
 
-        <!--apk下载完后，更新广播-->
+        <!--apk下载完后，安装广播-->
         <receiver android:name=".updateapp.InstallApkReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />

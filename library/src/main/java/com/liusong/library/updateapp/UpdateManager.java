@@ -25,7 +25,7 @@ public class UpdateManager {
     private DownloadManager downloadManager;
     private PackageInfo apkInfo;
 
-    public UpdateManager(Context context) {
+    private UpdateManager(Context context) {
         this.context = context;
         downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
     }
@@ -225,16 +225,27 @@ public class UpdateManager {
      */
     private long startDownloadFile(String url) {
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        //设置用于下载时的网络类型，默认任何网络都可以下载，提供的网络常量有：NETWORK_BLUETOOTH、NETWORK_MOBILE、NETWORK_WIFI.
+        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
+        //设置漫游状态下是否可以下载
+        request.setAllowedOverRoaming(false);
         //下载完成后保留下载的notification
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
         //设置Notification的title信息
         request.setTitle("更新");
         //设置Notification的message信息
-        request.setDescription("下载完成后点击打开");
+        request.setDescription("下载完成后点击安装");
 
         //设置文件的保存的位置[三种方式]
+        //第一种
         //file:///storage/emulated/0/Android/data/your-package/files/Download/update.apk
-        request.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, "xxx" + ".apk");
+        request.setDestinationInExternalFilesDir(context, Environment.DIRECTORY_DOWNLOADS, "app" + ".apk");
+        //第二种
+        //file:///storage/emulated/0/Download/update.apk
+        //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "update.apk");
+        //第三种 自定义文件路径
+        //request.setDestinationUri()
 
         // 设置下载文件的mineType。因为下载管理Ui中点击某个已下载完成文件及下载完成点击通知栏提示都会根据mimeType去打开文件，
         // 所以我们可以利用这个属性用于响应点击的打开文件
