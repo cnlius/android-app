@@ -28,6 +28,6 @@
             </shape>
         </clip>
         -->
-        <scale android:scaleWidth="100%" android:drawable="@drawable/shape_round_rectangle"/>
+        <scale android:scaleWidth="100%" android:drawable="@drawable/shape_round_rectangle_indigo"/>
     </item>
 </layer-list>
