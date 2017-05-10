@@ -8,11 +8,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 /**
- * 工具类
+ * 软键盘工具类
  * Created by liusong on 2017/3/29.
  */
 
-public class Utils {
+public class KeyboardUtils {
 
     //软键盘相关----------------------
 

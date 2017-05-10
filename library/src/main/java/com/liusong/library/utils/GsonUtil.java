@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 
+/**
+ * Gson库转换工具
+ */
 public class GsonUtil {
     private static Gson gson = null;
 
@@ -18,9 +21,6 @@ public class GsonUtil {
         if (gson == null) {
             gson = new Gson();
         }
-    }
-
-    private GsonUtil() {
     }
 
     /**
@@ -98,9 +98,8 @@ public class GsonUtil {
     public static <T> List<Map<String, T>> json2ListMaps(String gsonString) {
         List<Map<String, T>> list = null;
         if (gson != null) {
-            list = gson.fromJson(gsonString,
-                    new TypeToken<List<Map<String, T>>>() {
-                    }.getType());
+            list = gson.fromJson(gsonString, new TypeToken<List<Map<String, T>>>() {
+            }.getType());
         }
         return list;
     }
