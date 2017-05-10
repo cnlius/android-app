@@ -226,9 +226,9 @@ public class UpdateManager {
     private long startDownloadFile(String url) {
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
         //设置用于下载时的网络类型，默认任何网络都可以下载，提供的网络常量有：NETWORK_BLUETOOTH、NETWORK_MOBILE、NETWORK_WIFI.
-        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
+        /*request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);*/
         //设置漫游状态下是否可以下载
-        request.setAllowedOverRoaming(false);
+        /*request.setAllowedOverRoaming(false);*/
         //下载完成后保留下载的notification
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
