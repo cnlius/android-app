@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Intent intent=new Intent();
         switch (v.getId()){
+            case R.id.btn_update:
+                intent.setClass(this, UpdateActivity.class);
+                break;
             case R.id.btn_ipc:
                 intent.setClass(this, IPCActivity.class);
                 break;

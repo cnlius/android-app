@@ -3,7 +3,7 @@ package com.liusong.library.updateapp;
 import android.text.TextUtils;
 
 /**
- * 工具类
+ * 更新apk工具类
  * Created by liu song on 2017/5/10.
  */
 
