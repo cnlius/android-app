@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +22,8 @@ import com.liusong.library.utils.ToastUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static android.R.attr.x;
 
 /**
  * apk dowloadManager下载更新
@@ -73,14 +77,7 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
         myTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                DownloadManager downloadManager=(DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-                DownloadManager.Query query = new DownloadManager.Query().setFilterById(downlaodId);
-                Cursor cursor = downloadManager.query(query);
-                cursor.moveToFirst();
-                int curProgress = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
-                int totalProgress = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
-                cursor.close();
-                final int progress = (curProgress * 100 /totalProgress);
+                final int progress = queryDownloadProgress(downlaodId);
                 if (progress == 100) {
                     myTimer.cancel();
                     runOnUiThread(new Runnable() {
@@ -99,6 +96,21 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
                 }
             }
         }, 0, 1);
+    }
 
+    /**
+     * 根据下载id查询下载进度百分比
+     * @param downlaodId
+     * @return
+     */
+    private int queryDownloadProgress(long downlaodId){
+        DownloadManager downloadManager=(DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+        DownloadManager.Query query = new DownloadManager.Query().setFilterById(downlaodId);
+        Cursor cursor = downloadManager.query(query);
+        cursor.moveToFirst();
+        int curProgress = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+        int totalProgress = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+        cursor.close();
+        return curProgress * 100 /totalProgress;
     }
 }
