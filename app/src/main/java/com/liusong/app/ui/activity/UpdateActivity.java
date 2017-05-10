@@ -33,6 +33,10 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_simple_update:
                 simpleUpdate();
                 break;
+            case R.id.btn_progressbar_update:
+//                simpleUpdate();
+                mBinding.pbUpdate.setProgress(15);
+                break;
         }
     }
 
