@@ -11,6 +11,8 @@ import android.preference.PreferenceManager;
 import com.liusong.library.interfaces.CallBack;
 
 /**
+ * 下载目录观察者
+ * content://downloads/my_downloads
  * Created by liu song on 2017/5/11.
  */
 
