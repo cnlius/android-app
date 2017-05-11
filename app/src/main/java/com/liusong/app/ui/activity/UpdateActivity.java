@@ -3,19 +3,25 @@ package com.liusong.app.ui.activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.ContentObserver;
 import android.database.Cursor;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
 import com.liusong.app.R;
 import com.liusong.app.databinding.ActivityUpdateBinding;
+import com.liusong.library.interfaces.CallBack;
+import com.liusong.library.updateapp.DownloadObserver;
 import com.liusong.library.updateapp.UpdateManager;
 import com.liusong.library.updateapp.UpdateUtils;
 import com.liusong.library.utils.ToastUtils;
@@ -46,12 +52,26 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_simple_update:
                 simpleUpdate();
                 break;
-            case R.id.btn_progressbar_update:
+            case R.id.btn_progressbar_update_1:
+                mBinding.pbUpdate.setProgress(0);
                 simpleUpdate();
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
                 long downId = sp.getLong(DownloadManager.EXTRA_DOWNLOAD_ID, -1L);
                 updateViews(mBinding.pbUpdate,downId);
-//                mBinding.pbUpdate.setProgress(15);
+                break;
+            case R.id.btn_progressbar_update_2:
+                mBinding.pbUpdate.setProgress(0);
+                simpleUpdate();
+                DownloadObserver downloadObserver=new DownloadObserver(this,null, new CallBack<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        Log.i("LOG_CAT","progress="+integer);
+                        mBinding.pbUpdate.setProgress(integer);
+                    }
+                });
+                //"content://downloads/my_downloads"必须这样写不可更改
+                Uri CONTENT_URI = Uri.parse("content://downloads/my_downloads");
+                getContentResolver().registerContentObserver(CONTENT_URI, true, downloadObserver);
                 break;
         }
     }
@@ -95,7 +115,7 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
                     });
                 }
             }
-        }, 0, 1);
+        }, 0, 10);
     }
 
     /**
@@ -113,4 +133,5 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
         cursor.close();
         return curProgress * 100 /totalProgress;
     }
+
 }
