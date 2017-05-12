@@ -39,6 +39,7 @@ import static android.R.attr.x;
 public class UpdateActivity extends AppCompatActivity implements View.OnClickListener{
     private ActivityUpdateBinding mBinding;
     private static final String apkurl = "https://raw.githubusercontent.com/cnlius/resource/master/apk/collections.apk";
+    private DownloadObserver downloadObserver;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,7 +63,7 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_progressbar_update_2:
                 mBinding.pbUpdate.setProgress(0);
                 simpleUpdate();
-                DownloadObserver downloadObserver=new DownloadObserver(this,null, new CallBack<Integer>() {
+                downloadObserver = new DownloadObserver(this,null, new CallBack<Integer>() {
                     @Override
                     public void call(Integer integer) {
                         Log.i("LOG_CAT","progress="+integer);
@@ -74,6 +75,12 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
                 getContentResolver().registerContentObserver(CONTENT_URI, true, downloadObserver);
                 break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getContentResolver().unregisterContentObserver(downloadObserver);
     }
 
     /**
