@@ -18,11 +18,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--将IPCTargetActivity共享出去-->
         <activity
             android:name=".ipc.IPCTargetActivity"
             android:label="IPC目标页面"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.ls.test.IPC"  />
+                <!--访问协议是："info://xxxUri",xxxUri可通过getIntent().getData().getHost()获取-->
+                <data android:scheme="info"  />
+                <category android:name="android.intent.category.DEFAULT"  />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

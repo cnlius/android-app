@@ -19,9 +19,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:onClick="onClick"
-            android:text="通过Intent访问其他应用程序的Activity。"
+            android:text="接收数据如下："
             android:textAllCaps="false" />
 
+        <TextView
+            android:id="@+id/tv_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="data"
+            android:textAllCaps="false" />
     </LinearLayout>
 </layout>
 

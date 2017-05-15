@@ -19,5 +19,21 @@ public class IPCTargetActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_ipc_target);
+        receiveData();
+    }
+
+    /**
+     * 获得其他地方传递过来的数据
+     */
+    private void receiveData() {
+        if (getIntent().getData() != null) {
+            //获得Host，也就是info://后面的内容
+            String host = getIntent().getData().getHost();
+            Bundle bundle = getIntent().getExtras();
+            //其他的应用程序会传递过来一个value值，在该应用程序中需要获得这个值
+            String value = bundle.getString("value");
+            //将Host和Value组合在一下显示在EditText组件中
+            mBinding.tvData.setText(host + ":" + value);
+        }
     }
 }
