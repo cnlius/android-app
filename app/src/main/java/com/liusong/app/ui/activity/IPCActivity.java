@@ -45,17 +45,8 @@ public class IPCActivity extends BaseActivity implements View.OnClickListener {
     }
 
     /**
-     * 去其它应用
+     * 打电话
      */
-    private void goOtherApp() {
-        //需要使用Intent类的第2个参数指定Uri
-        Intent intent = new Intent("com.ls.test.IPC", Uri.parse("info://调用其他应用程序的Activity"));
-        //设置value属性值
-        intent.putExtra("value", "飞船离开地球");
-//        startActivity(intent);
-        startActivityForResult(intent, 0x1);
-    }
-
     private void callPhone() {
         if (hasPermission(Manifest.permission.CALL_PHONE)) {
             doCallPhone();
@@ -74,6 +65,18 @@ public class IPCActivity extends BaseActivity implements View.OnClickListener {
             return;
         }
         startActivity(callIntent);
+    }
+
+    /**
+     * 去其它应用
+     */
+    private void goOtherApp() {
+        //需要使用Intent类的第2个参数指定Uri
+        Intent intent = new Intent("com.ls.test.IPC", Uri.parse("info://调用其他应用程序的Activity"));
+        //设置value属性值
+        intent.putExtra("value", "飞船离开地球");
+//        startActivity(intent);
+        startActivityForResult(intent, 0x1);
     }
 
     @Override
