@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -20,7 +20,7 @@
         </activity>
         <!--将IPCTargetActivity共享出去-->
         <activity
-            android:name=".ipc.IPCTargetActivity"
+            android:name=".ui.IPCTargetActivity"
             android:label="IPC目标页面"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:screenOrientation="portrait">

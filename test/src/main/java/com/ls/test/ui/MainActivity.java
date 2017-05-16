@@ -1,10 +1,11 @@
-package com.ls.test;
+package com.ls.test.ui;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.ls.test.R;
 import com.ls.test.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

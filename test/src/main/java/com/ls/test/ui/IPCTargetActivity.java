@@ -1,4 +1,4 @@
-package com.ls.test.ipc;
+package com.ls.test.ui;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -11,7 +11,7 @@ import com.ls.test.R;
 import com.ls.test.databinding.ActivityIpcTargetBinding;
 
 /**
- * 被跳转页面
+ * IPC: intent跳转的目标页面
  * Created by liu song on 2017/4/27.
  */
 
