@@ -25,6 +25,7 @@
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:screenOrientation="portrait">
             <intent-filter>
+                <!--隐式跳转必须指定action,category.DEFAULT,data协议可选-->
                 <action android:name="com.ls.test.IPC"  />
                 <!--访问协议是："info://xxxUri",xxxUri可通过getIntent().getData().getHost()获取-->
                 <data android:scheme="info"  />
