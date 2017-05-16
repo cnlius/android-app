@@ -4,7 +4,6 @@ import android.databinding.DataBindingUtil;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -12,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.liusong.app.R;
+import com.liusong.app.base.BaseActivity;
 import com.liusong.app.databinding.ActivityKeyboardInBinding;
 import com.liusong.library.utils.KeyboardUtils;
 
@@ -19,7 +19,7 @@ import com.liusong.library.utils.KeyboardUtils;
  * Created by liu song on 2017/3/29.
  */
 
-public class KeyboardInActivity extends AppCompatActivity {
+public class KeyboardInActivity extends BaseActivity {
     public static final int STATUS_SHOW = 1;
     public static final int STATUS_HIDE = -1;
     private ActivityKeyboardInBinding mBinding;
