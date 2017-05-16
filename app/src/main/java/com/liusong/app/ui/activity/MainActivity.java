@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
      * 申请app必须的权限
      */
     private void requestMustPermissions() {
-        String[] permissions={Manifest.permission.CALL_PHONE};
+        String[] permissions={Manifest.permission.CALL_PHONE,Manifest.permission.READ_CONTACTS};
         if(!hasPermission(permissions)){
             requestPermission(Constants.GRANT_ALL_CODE,getUnGrantPermissions(permissions));
         }
@@ -44,6 +44,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.btn_keyboard_main:
                 intent.setClass(this, KeyboardInActivity.class);
+                break;
+            case R.id.btn_content_resolver:
+                intent.setClass(this, ContentResolverActivity.class);
                 break;
             default:
                 break;

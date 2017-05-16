@@ -11,6 +11,9 @@
     <!--申请访问DownloadManager的权限-->
     <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
 
+    <!--联系人-->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
     <!-- 拨号权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
@@ -47,6 +50,14 @@
         <activity
             android:name=".ui.activity.IPCActivity"
             android:label="IPC"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+
+        <!--四大组件-->
+        <!--ContentResolver-->
+        <activity
+            android:name=".ui.activity.ContentResolverActivity"
+            android:label="ContentProvider操作数据"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
     </application>
