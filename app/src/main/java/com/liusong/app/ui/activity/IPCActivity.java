@@ -6,11 +6,8 @@ import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -18,6 +15,7 @@ import com.liusong.app.R;
 import com.liusong.app.base.BaseActivity;
 import com.liusong.app.databinding.ActivityIpcBinding;
 import com.liusong.app.utils.Constants;
+import com.liusong.library.utils.ToastUtils;
 
 /**
  * Created by liu song on 2017/4/27.
@@ -39,10 +37,23 @@ public class IPCActivity extends BaseActivity implements View.OnClickListener {
                 callPhone();
                 break;
             case R.id.btn_to_target_activity:
+                goOtherApp();
                 break;
             default:
                 break;
         }
+    }
+
+    /**
+     * 去其它应用
+     */
+    private void goOtherApp() {
+        //需要使用Intent类的第2个参数指定Uri
+        Intent intent = new Intent("com.ls.test.IPC", Uri.parse("info://调用其他应用程序的Activity"));
+        //设置value属性值
+        intent.putExtra("value", "飞船离开地球");
+//        startActivity(intent);
+        startActivityForResult(intent, 0x1);
     }
 
     private void callPhone() {
@@ -63,5 +74,12 @@ public class IPCActivity extends BaseActivity implements View.OnClickListener {
             return;
         }
         startActivity(callIntent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode==RESULT_OK) {
+            ToastUtils.showToast(this, "返回值：" + data.getExtras().getString("result"));
+        }
     }
 }
