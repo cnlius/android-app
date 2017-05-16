@@ -41,6 +41,15 @@ public class ContactsVo {
         this.phones = phones;
     }
 
+    @Override
+    public String toString() {
+        return "ContactsVo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phones=" + phones.toString() +
+                '}';
+    }
+
     public static class Phone{
         private String typeName;
         private String number;
@@ -64,6 +73,14 @@ public class ContactsVo {
 
         public void setNumber(String number) {
             this.number = number;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "typeName='" + typeName + '\'' +
+                    ", number='" + number + '\'' +
+                    '}';
         }
     }
 }

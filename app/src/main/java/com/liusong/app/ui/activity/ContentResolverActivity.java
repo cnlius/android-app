@@ -34,7 +34,9 @@ public class ContentResolverActivity extends BaseActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_search_phone:
-                searchPhones();
+                if(getContacts()!=null){
+                    showToast("系统联系人："+getContacts().toString());
+                }
                 break;
         }
     }
@@ -42,7 +44,7 @@ public class ContentResolverActivity extends BaseActivity implements View.OnClic
     /**
      * 查询系统联系人
      */
-    private void searchPhones() {
+    private List<ContactsVo> getContacts() {
         List<ContactsVo> contacts = new ArrayList<>();
         ContentResolver resolver = getContentResolver();
 
@@ -81,6 +83,7 @@ public class ContentResolverActivity extends BaseActivity implements View.OnClic
             contacts.add(new ContactsVo(contactId, name, phones));
         }
         cursor.close();
+        return contacts;
     }
 
     /**
