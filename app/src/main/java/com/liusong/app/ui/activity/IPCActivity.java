@@ -18,7 +18,7 @@ import com.liusong.app.utils.Constants;
 import com.liusong.library.utils.ToastUtils;
 
 /**
- * Activity跨进程通信：Intent隐式跳转
+ * 跨进程通信-Activity：Intent隐式跳转
  * Created by liu song on 2017/4/27.
  */
 
