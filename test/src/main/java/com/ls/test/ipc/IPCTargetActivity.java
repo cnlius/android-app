@@ -11,6 +11,7 @@ import com.ls.test.R;
 import com.ls.test.databinding.ActivityIpcTargetBinding;
 
 /**
+ * 被跳转页面
  * Created by liu song on 2017/4/27.
  */
 
