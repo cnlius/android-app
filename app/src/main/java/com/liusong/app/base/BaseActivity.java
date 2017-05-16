@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.liusong.app.utils.Constants;
 
+import java.util.ArrayList;
+
 /**
  * Created by liu song on 2017/5/3.
  */
@@ -28,6 +30,22 @@ public class BaseActivity extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    /**
+     * 获取未授权的权限
+     * @param permissions
+     * @return
+     */
+    public String[] getUnGrantPermissions(String... permissions){
+        ArrayList ps=new ArrayList();
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(this, permission) !=
+                    PackageManager.PERMISSION_GRANTED) {
+                ps.add(permission);
+            }
+        }
+        return (String[]) ps.toArray();
     }
 
     /**

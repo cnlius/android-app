@@ -1,5 +1,6 @@
 package com.liusong.app.ui.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
@@ -7,15 +8,28 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.liusong.app.R;
+import com.liusong.app.base.BaseActivity;
 import com.liusong.app.databinding.ActivityMainBinding;
+import com.liusong.app.utils.Constants;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener{
     private ActivityMainBinding mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding= DataBindingUtil.setContentView(this,R.layout.activity_main);
+        requestMustPermissions();
+    }
+
+    /**
+     * 申请app必须的权限
+     */
+    private void requestMustPermissions() {
+        String[] permissions={Manifest.permission.CALL_PHONE};
+        if(!hasPermission(permissions)){
+            requestPermission(Constants.GRANT_ALL_CODE,getUnGrantPermissions(permissions));
+        }
     }
 
     @Override

@@ -6,5 +6,6 @@ package com.liusong.app.utils;
 
 public class Constants {
 
+    public static final int GRANT_ALL_CODE=0x1; //授权数组中所有权限；
     public static final int CALL_PHONE_CODE=0x01; //打电话权限请求码；
 }
