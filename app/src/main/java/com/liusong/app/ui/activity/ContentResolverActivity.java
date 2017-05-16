@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * ContentProvider
+ * 注意：需要权限：READ_CONTACTS，
  * Created by liu song on 2017/5/16.
  */
 
