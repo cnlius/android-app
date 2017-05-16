@@ -28,6 +28,7 @@ public class IPCContentProvider extends ContentProvider {
         //常量UriMatcher.NO_MATCH表示不匹配任何路径的返回码
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
         uriMatcher.addURI("com.ls.test.provider", tableName, TYPE_ONE); //uri,表,匹配码
+        //“#”为数据的通配符，“*”为所有文本的通配符，匹配码为第三个参数。eg:content://cn.wuxiaocheng.people/age/23;
         uriMatcher.addURI("com.ls.test.provider", tableName + "/#", TYPE_TWO);
     }
 
