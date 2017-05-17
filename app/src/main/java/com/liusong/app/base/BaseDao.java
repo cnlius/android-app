@@ -23,16 +23,33 @@ public abstract class BaseDao {
     private DbHelper db;
     private SQLiteDatabase dba; //获取数据库操作员-->可以对数据库进行增删改查操作；
 
-    {
-        Log.i("BaseDao","1");
-        db = initDbHelper();
-        Log.i("BaseDao","2");
+    protected void setDbHelper(DbHelper db) {
+        this.db = db;
     }
-
-    protected abstract DbHelper initDbHelper();
 
     protected DbHelper getDbHelper() {
         return db;
+    }
+
+    /**
+     * 判断表是否存在
+     * @param table
+     * @return
+     */
+    protected boolean isHasTable(String table){
+        dba = db.getReadableDatabase();
+        Cursor cursor = dba.rawQuery("select count(*) from sqlite_master where type='table' and name = '"+table+"'", null);
+        if(cursor!=null){
+            if(cursor.moveToNext()){
+                int count=cursor.getInt(0);
+                cursor.close();
+                if(count>0){
+                    return true;
+                }
+            }
+        }
+        dba.close();
+        return false;
     }
 
     //增

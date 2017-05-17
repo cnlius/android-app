@@ -15,7 +15,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class TestDbHelper extends SQLiteOpenHelper {
 
     //创建temp表的sql语句
-    private static final String CREATE_TEMP_TABLE_SQL = "create table temp(id integer primary key autoincrement,name varchar(256),phone text";
+    private static final String CREATE_TEMP_TABLE_SQL = "create table temp(id integer primary key autoincrement,name varchar(256),phone text)";
 
     /**
      * 创建名为工程名.db的数据库
