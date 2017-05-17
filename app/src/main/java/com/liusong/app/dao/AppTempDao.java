@@ -4,8 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.liusong.app.base.BaseDao;
-import com.liusong.app.utils.DbHelper;
+import com.liusong.library.sqlite.BaseDao;
+import com.liusong.library.sqlite.DbHelper;
 import com.liusong.library.utils.ToastUtils;
 
 /**
@@ -37,10 +37,10 @@ public class AppTempDao extends BaseDao {
      */
     public void createTempTable() {
         if (isHasTable("temp")) {
-            ToastUtils.showToast(context,"temp表已经存在");
-        }else{
+            ToastUtils.showToast(context, "temp表已经存在");
+        } else {
             execSQL("create table temp(id integer primary key autoincrement,name varchar(256),phone varchar(256))");
-            ToastUtils.showToast(context,"temp表创建成功");
+            ToastUtils.showToast(context, "temp表创建成功");
         }
     }
 

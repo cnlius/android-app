@@ -1,13 +1,11 @@
-package com.liusong.app.base;
+package com.liusong.library.sqlite;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
-import com.liusong.app.utils.DbHelper;
 
 /**
  * 对数据库中的表进行操作
@@ -16,6 +14,7 @@ import com.liusong.app.utils.DbHelper;
  * ContentValues values=new ContentValues();
  * values.put("key", value);
  * -----------------------------------------
+ * 2> 特别指查询操作完成之后需要通过getDba().isOpen()判断是否打开dba,并关闭dba和cursor；
  * Created by liu song on 2017/5/17.
  */
 
@@ -23,30 +22,35 @@ public abstract class BaseDao {
     private DbHelper db;
     private SQLiteDatabase dba; //获取数据库操作员-->可以对数据库进行增删改查操作；
 
-    protected void setDbHelper(DbHelper db) {
-        this.db = db;
-    }
-
     protected DbHelper getDbHelper() {
         return db;
     }
 
+    protected void setDbHelper(DbHelper db) {
+        this.db = db;
+    }
+
+    public SQLiteDatabase getDba() {
+        return dba;
+    }
+
     /**
      * 判断表是否存在
+     *
      * @param table
      * @return
      */
-    protected boolean isHasTable(String table){
+    protected boolean isHasTable(String table) {
         dba = db.getReadableDatabase();
-        Cursor cursor = dba.rawQuery("select count(*) from sqlite_master where type='table' and name = '"+table+"'", null);
-        if(cursor!=null){
-            if(cursor.moveToNext()){
-                int count=cursor.getInt(0);
-                cursor.close();
-                if(count>0){
+        Cursor cursor = dba.rawQuery("select count(*) from sqlite_master where type='table' and name = '" + table + "'", null);
+        if (cursor != null) {
+            if (cursor.moveToNext()) {
+                int count = cursor.getInt(0);
+                if (count > 0) {
                     return true;
                 }
             }
+            cursor.close();
         }
         dba.close();
         return false;
@@ -135,7 +139,6 @@ public abstract class BaseDao {
     protected Cursor query(@NonNull String table, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String orderBy) {
         dba = db.getReadableDatabase();
         Cursor cursor = dba.query(table, projection, selection, selectionArgs, null, null, orderBy);
-        dba.close();
         return cursor;
     }
 
@@ -148,7 +151,6 @@ public abstract class BaseDao {
     protected Cursor queryAll(@NonNull String table) {
         dba = db.getReadableDatabase();
         Cursor cursor = dba.rawQuery("SELECT * FROM " + table, null);
-        dba.close();
         return cursor;
     }
 

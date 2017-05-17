@@ -45,4 +45,12 @@ public class SQLiteActivity extends BaseActivity implements View.OnClickListener
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //关闭数据库连接
+        if (appTempDao.getDba().isOpen()) {
+            appTempDao.getDba().close();
+        }
+    }
 }
