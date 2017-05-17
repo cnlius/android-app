@@ -43,6 +43,14 @@
                 android:onClick="onClick"
                 android:text="ContentResolver操作数据"
                 android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_sqlite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClick"
+                android:text="SQLite"
+                android:textAllCaps="false" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </layout>

@@ -51,8 +51,8 @@ public class IPCContentProvider extends ContentProvider {
                 break;
             case TYPE_TWO:
                 long id= ContentUris.parseId(uri);
-                String whereString="id="+id+" and "+selection;
-                cursor=testDbHelper.getWritableDatabase().query(tableName, projection, whereString, selectionArgs, null, null, sortOrder);
+                selection="id="+id+" and "+selection;
+                cursor=testDbHelper.getWritableDatabase().query(tableName, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             default:
                 break;
@@ -66,10 +66,10 @@ public class IPCContentProvider extends ContentProvider {
         String typeString="";
         switch (uriMatcher.match(uri)) {
             case TYPE_ONE:
-                typeString="one.com.ls.test.IPC_CONTENT_PROVIDER";
+                typeString="com.ls.test.provider.one";
                 break;
             case TYPE_TWO:
-                typeString="two.com.ls.test.IPC_CONTENT_PROVIDER";
+                typeString="com.ls.test.provider.two";
                 break;
             default:
                 break;

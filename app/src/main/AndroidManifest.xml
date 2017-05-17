@@ -53,6 +53,13 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
 
+        <!--SQLite-->
+        <activity
+            android:name=".ui.activity.SQLiteActivity"
+            android:label="SQLite"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait" />
+
         <!--四大组件-->
         <!--ContentResolver-->
         <activity
