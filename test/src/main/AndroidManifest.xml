@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ls.test">
 
+    <permission android:name="com.ls.test.provider.READ_PROVIDER" android:protectionLevel="normal"/>
+    <permission android:name="com.ls.test.provider.WRITE_PROVIDER" android:protectionLevel="normal"/>
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -38,6 +41,8 @@
         <provider
             android:name=".provider.IPCContentProvider"
             android:authorities="com.ls.test.provider"
+            android:readPermission="com.ls.test.provider.READ_PROVIDER"
+            android:writePermission="com.ls.test.provider.WRITE_PROVIDER"
             android:exported="true" />
     </application>
 
