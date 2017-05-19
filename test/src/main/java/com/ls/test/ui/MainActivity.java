@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.ls.test.R;
 import com.ls.test.databinding.ActivityMainBinding;
+import com.ls.test.db.TestDbHelper;
+
+import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding mBinding;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

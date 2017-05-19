@@ -3,6 +3,7 @@
     package="com.ls.test">
 
     <application
+        android:name=".app.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,17 +22,23 @@
         <!--将IPCTargetActivity共享出去-->
         <activity
             android:name=".ui.IPCTargetActivity"
-            android:label="IPC目标页面"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="IPC目标页面"
             android:screenOrientation="portrait">
             <intent-filter>
                 <!--隐式跳转必须指定action,category.DEFAULT,data协议可选-->
-                <action android:name="com.ls.test.IPC"  />
+                <action android:name="com.ls.test.IPC" />
                 <!--访问协议是："info://xxxUri",xxxUri可通过getIntent().getData().getHost()获取-->
-                <data android:scheme="info"  />
-                <category android:name="android.intent.category.DEFAULT"  />
+                <data android:scheme="info" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!--共享数据的ContentProvider,访问他需要申请权限-->
+        <provider
+            android:name=".provider.IPCContentProvider"
+            android:authorities="com.ls.test.provider"
+            android:exported="true" />
     </application>
 
 </manifest>

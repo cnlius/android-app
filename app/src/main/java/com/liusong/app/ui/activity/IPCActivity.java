@@ -3,11 +3,13 @@ package com.liusong.app.ui.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,6 +19,9 @@ import com.liusong.app.databinding.ActivityIpcBinding;
 import com.liusong.app.utils.Constants;
 import com.liusong.library.utils.ToastUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 跨进程通信-Activity：Intent隐式跳转
  * Created by liu song on 2017/4/27.
@@ -24,6 +29,8 @@ import com.liusong.library.utils.ToastUtils;
 
 public class IPCActivity extends BaseActivity implements View.OnClickListener {
     private ActivityIpcBinding mBinding;
+    private Uri uri = Uri.parse("content://com.ls.test.provider/one");
+    private List<String> list=new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +46,9 @@ public class IPCActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_to_target_activity:
                 goOtherApp();
+                break;
+            case R.id.btn_provider_query:
+                query();
                 break;
             default:
                 break;
@@ -78,6 +88,23 @@ public class IPCActivity extends BaseActivity implements View.OnClickListener {
         intent.putExtra("value", "飞船离开地球");
 //        startActivity(intent);
         startActivityForResult(intent, 0x1);
+    }
+
+    /**
+     * 查询test contentprovider共享数据
+     */
+    private void query() {
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        if (cursor != null) {
+            list.clear();
+            while (cursor.moveToNext()) {
+                String nameString = cursor.getString(cursor.getColumnIndex("name"));
+                String numString = cursor.getString(cursor.getColumnIndex("number"));
+                list.add(nameString + "\n" + numString);
+            }
+            cursor.close();
+        }
+        Log.i("LOG_CAT","list: "+list.toString());
     }
 
     @Override
