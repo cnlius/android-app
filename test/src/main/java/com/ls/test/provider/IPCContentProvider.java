@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.ls.test.db.TestDbHelper;
 
@@ -38,6 +39,7 @@ public class IPCContentProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         testDbHelper=new TestDbHelper(getContext());
+        Log.i("LOG_CAT","create provider");
         return true;
     }
 
