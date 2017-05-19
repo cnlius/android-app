@@ -3,6 +3,7 @@
     package="com.liusong.app">
 
     <!--访问test moudle中contentProvider权限-->
+    <uses-permission android:name="com.ls.test.provider"/>
     <uses-permission android:name="com.ls.test.provider.READ_PROVIDER"/>
     <uses-permission android:name="com.ls.test.provider.WRITE_PROVIDER"/>
 

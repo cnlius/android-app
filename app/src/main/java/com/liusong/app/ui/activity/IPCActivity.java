@@ -29,7 +29,7 @@ import java.util.List;
 
 public class IPCActivity extends BaseActivity implements View.OnClickListener {
     private ActivityIpcBinding mBinding;
-    private Uri uri = Uri.parse("content://com.ls.test.provider/one");
+    private Uri uri = Uri.parse("content://com.ls.test.provider/temp");
     private List<String> list=new ArrayList<>();
 
     @Override
@@ -99,7 +99,7 @@ public class IPCActivity extends BaseActivity implements View.OnClickListener {
             list.clear();
             while (cursor.moveToNext()) {
                 String nameString = cursor.getString(cursor.getColumnIndex("name"));
-                String numString = cursor.getString(cursor.getColumnIndex("number"));
+                String numString = cursor.getString(cursor.getColumnIndex("phone"));
                 list.add(nameString + "\n" + numString);
             }
             cursor.close();
