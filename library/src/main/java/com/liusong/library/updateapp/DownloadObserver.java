@@ -8,7 +8,7 @@ import android.database.Cursor;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 
-import com.liusong.library.interfaces.CallBack;
+import com.liusong.library.interfaces.CallBack1;
 
 /**
  * 下载目录观察者
@@ -18,10 +18,10 @@ import com.liusong.library.interfaces.CallBack;
 
 public class DownloadObserver extends ContentObserver {
     private DownloadManager downloadManager;
-    private CallBack<Integer> callBack;
+    private CallBack1<Integer> callBack;
     private long lastDownloadId;
 
-    public DownloadObserver(Context context, Handler handler, CallBack<Integer> callBack) {
+    public DownloadObserver(Context context, Handler handler, CallBack1<Integer> callBack) {
         super(handler);
         this.callBack=callBack;
         downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);

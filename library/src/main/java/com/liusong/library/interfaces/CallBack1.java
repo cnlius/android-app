@@ -5,6 +5,6 @@ package com.liusong.library.interfaces;
  * Created by liu song on 2017/5/11.
  */
 
-public interface CallBack<T>{
+public interface CallBack1<T>{
     void call(T t);
 }

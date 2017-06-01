@@ -16,7 +16,7 @@ import android.widget.ProgressBar;
 import com.liusong.app.R;
 import com.liusong.app.base.BaseActivity;
 import com.liusong.app.databinding.ActivityUpdateBinding;
-import com.liusong.library.interfaces.CallBack;
+import com.liusong.library.interfaces.CallBack1;
 import com.liusong.library.updateapp.DownloadObserver;
 import com.liusong.library.updateapp.UpdateManager;
 import com.liusong.library.updateapp.UpdateUtils;
@@ -57,7 +57,7 @@ public class UpdateActivity extends BaseActivity implements View.OnClickListener
             case R.id.btn_progressbar_update_2:
                 mBinding.pbUpdate.setProgress(0);
                 simpleUpdate();
-                downloadObserver = new DownloadObserver(this, null, new CallBack<Integer>() {
+                downloadObserver = new DownloadObserver(this, null, new CallBack1<Integer>() {
                     @Override
                     public void call(Integer integer) {
                         Log.i("LOG_CAT", "progress=" + integer);
