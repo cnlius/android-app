@@ -24,6 +24,8 @@ import java.util.List;
 
 /**
  * 跨进程通信-Activity：Intent隐式跳转
+ *
+ * 注意：需要先安装test
  * Created by liu song on 2017/4/27.
  */
 
