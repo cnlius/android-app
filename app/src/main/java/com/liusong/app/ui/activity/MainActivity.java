@@ -55,6 +55,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btn_sqlite:
                 intent.setClass(this, SQLiteActivity.class);
                 break;
+            case R.id.btn_net:
+                intent.setClass(this, NetActivity.class);
+                break;
             default:
                 break;
         }
