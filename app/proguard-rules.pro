@@ -87,8 +87,8 @@
 -keep public class * extends android.support.v7.**
 -keep public class * extends android.support.annotation.**
 
-#model vo类防混淆
--keep class com.liusong.app.vo.**{ *;}
+# 保留support下的所有类及其内部类
+-keep class android.support.** {*;}
 
 #保持所有实现 Serializable 接口的类成员
 -keepclassmembers class * implements java.io.Serializable {
@@ -108,8 +108,8 @@
 -dontwarn org.junit.**
 ####################################################
 
-# 保留support下的所有类及其内部类
--keep class android.support.** {*;}
+#model vo类防混淆
+-keep class com.liusong.app.vo.**{ *;}
 
 # OkHttp3
 -dontwarn com.squareup.okhttp3.**
