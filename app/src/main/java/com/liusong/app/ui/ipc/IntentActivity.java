@@ -1,4 +1,4 @@
-package com.liusong.app.ui.activity;
+package com.liusong.app.ui.ipc;
 
 import android.Manifest;
 import android.content.Intent;
@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.liusong.app.R;
 import com.liusong.app.base.BaseActivity;
@@ -29,7 +28,7 @@ import java.util.List;
  * Created by liu song on 2017/4/27.
  */
 
-public class IPCActivity extends BaseActivity implements View.OnClickListener {
+public class IntentActivity extends BaseActivity implements View.OnClickListener {
     private ActivityIpcBinding mBinding;
     private Uri uri = Uri.parse("content://com.ls.test.provider/temp");
     private List<String> list=new ArrayList<>();

@@ -1,4 +1,4 @@
-package com.liusong.app.ui.activity;
+package com.liusong.app.ui.keyboard;
 
 import android.databinding.DataBindingUtil;
 import android.graphics.Rect;
@@ -16,10 +16,11 @@ import com.liusong.app.databinding.ActivityKeyboardInBinding;
 import com.liusong.library.utils.KeyboardUtils;
 
 /**
+ * 软键盘显示与隐藏的监听
  * Created by liu song on 2017/3/29.
  */
 
-public class KeyboardInActivity extends BaseActivity {
+public class ShowHideActivity extends BaseActivity {
     public static final int STATUS_SHOW = 1;
     public static final int STATUS_HIDE = -1;
     private ActivityKeyboardInBinding mBinding;
@@ -60,11 +61,11 @@ public class KeyboardInActivity extends BaseActivity {
                 if (bottom != 0 && bottom - rect.bottom < tempHeight && keyboardStatus != STATUS_HIDE) {
                     keyboardStatus = STATUS_HIDE;
                     Log.d("LOG_CAT", "收起软键盘");
-                    Toast.makeText(KeyboardInActivity.this, "收起软键盘", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ShowHideActivity.this, "收起软键盘", Toast.LENGTH_SHORT).show();
                 } else if (bottom != 0 && bottom - rect.bottom > tempHeight && keyboardStatus != STATUS_SHOW) {
                     keyboardStatus = STATUS_SHOW;
                     Log.d("LOG_CAT", "弹出软键盘");
-                    Toast.makeText(KeyboardInActivity.this, "弹出软键盘", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ShowHideActivity.this, "弹出软键盘", Toast.LENGTH_SHORT).show();
                 }
             }
         });

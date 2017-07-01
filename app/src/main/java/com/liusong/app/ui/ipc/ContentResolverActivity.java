@@ -1,4 +1,4 @@
-package com.liusong.app.ui.activity;
+package com.liusong.app.ui.ipc;
 
 import android.content.ContentResolver;
 import android.database.Cursor;

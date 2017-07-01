@@ -10,7 +10,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="网络状态"/>
+            android:text="网络状态的改变见Log"/>
 
     </LinearLayout>
 </layout>

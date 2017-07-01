@@ -8,7 +8,7 @@
 
 
         <!--apk下载完后，安装广播-->
-        <receiver android:name=".updateapp.InstallApkReceiver">
+        <receiver android:name=".update.InstallApkReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
                 <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />

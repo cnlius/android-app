@@ -1,4 +1,4 @@
-package com.liusong.library.updateapp;
+package com.liusong.library.update;
 
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;

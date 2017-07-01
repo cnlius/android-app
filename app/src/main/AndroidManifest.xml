@@ -33,7 +33,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/app_name"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:screenOrientation="portrait">
@@ -43,27 +43,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.UpdateActivity"
+            android:name=".ui.update.DmActivity"
             android:label="一般的Apk更新方法"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
         <!--软键盘-->
         <activity
-            android:name=".ui.activity.KeyboardInActivity"
+            android:name=".ui.keyboard.ShowHideActivity"
             android:label="Activity中监听软键盘显隐"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
 
         <!--IPC-->
         <activity
-            android:name=".ui.activity.IPCActivity"
+            android:name=".ui.ipc.IntentActivity"
             android:label="IPC"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
 
         <!--SQLite-->
         <activity
-            android:name=".ui.activity.SQLiteActivity"
+            android:name=".ui.db.SQLiteActivity"
             android:label="SQLite"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
@@ -71,14 +71,14 @@
         <!--四大组件-->
         <!--ContentResolver-->
         <activity
-            android:name=".ui.activity.ContentResolverActivity"
+            android:name=".ui.ipc.ContentResolverActivity"
             android:label="ContentProvider操作数据"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
 
         <!--网络-->
         <activity
-            android:name=".ui.activity.NetActivity"
+            android:name=".ui.net.NetActivity"
             android:label="Net"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />

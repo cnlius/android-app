@@ -1,4 +1,4 @@
-package com.liusong.app.ui.activity;
+package com.liusong.app.ui.update;
 
 import android.app.DownloadManager;
 import android.content.Context;
@@ -17,20 +17,20 @@ import com.liusong.app.R;
 import com.liusong.app.base.BaseActivity;
 import com.liusong.app.databinding.ActivityUpdateBinding;
 import com.liusong.library.interfaces.CallBack1;
-import com.liusong.library.updateapp.DownloadObserver;
-import com.liusong.library.updateapp.UpdateManager;
-import com.liusong.library.updateapp.UpdateUtils;
+import com.liusong.library.update.DownloadObserver;
+import com.liusong.library.update.UpdateManager;
+import com.liusong.library.update.UpdateUtils;
 import com.liusong.library.utils.ToastUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * apk dowloadManager下载更新
+ * dowloadManager下载更新
  * Created by liu song on 2017/5/10.
  */
 
-public class UpdateActivity extends BaseActivity implements View.OnClickListener {
+public class DmActivity extends BaseActivity implements View.OnClickListener {
     private static final String apkurl = "https://raw.githubusercontent.com/cnlius/resource/master/apk/collections.apk";
     private ActivityUpdateBinding mBinding;
     private DownloadObserver downloadObserver;

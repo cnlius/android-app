@@ -1,4 +1,4 @@
-package com.liusong.app.ui.activity;
+package com.liusong.app.ui;
 
 import android.Manifest;
 import android.content.Intent;
@@ -9,6 +9,12 @@ import android.view.View;
 import com.liusong.app.R;
 import com.liusong.app.base.BaseActivity;
 import com.liusong.app.databinding.ActivityMainBinding;
+import com.liusong.app.ui.ipc.ContentResolverActivity;
+import com.liusong.app.ui.ipc.IntentActivity;
+import com.liusong.app.ui.keyboard.ShowHideActivity;
+import com.liusong.app.ui.net.NetActivity;
+import com.liusong.app.ui.db.SQLiteActivity;
+import com.liusong.app.ui.update.DmActivity;
 import com.liusong.app.utils.Constants;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -41,13 +47,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         Intent intent = new Intent();
         switch (v.getId()) {
             case R.id.btn_update:
-                intent.setClass(this, UpdateActivity.class);
+                intent.setClass(this, DmActivity.class);
                 break;
             case R.id.btn_ipc:
-                intent.setClass(this, IPCActivity.class);
+                intent.setClass(this, IntentActivity.class);
                 break;
             case R.id.btn_keyboard_main:
-                intent.setClass(this, KeyboardInActivity.class);
+                intent.setClass(this, ShowHideActivity.class);
                 break;
             case R.id.btn_content_resolver:
                 intent.setClass(this, ContentResolverActivity.class);

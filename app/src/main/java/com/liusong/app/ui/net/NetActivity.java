@@ -1,4 +1,4 @@
-package com.liusong.app.ui.activity;
+package com.liusong.app.ui.net;
 
 import android.content.IntentFilter;
 import android.databinding.DataBindingUtil;

@@ -1,4 +1,4 @@
-package com.liusong.app.ui.activity;
+package com.liusong.app.ui.db;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
