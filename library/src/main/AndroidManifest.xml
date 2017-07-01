@@ -1,11 +1,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.liusong.library">
 
+    <!--申请访问DownloadManager的权限-->
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
 
+        <!--7.0权限适配-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.lw.path.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <!--apk下载完后，安装广播-->
         <receiver android:name=".update.InstallApkReceiver">

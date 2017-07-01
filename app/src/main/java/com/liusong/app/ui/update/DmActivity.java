@@ -74,7 +74,9 @@ public class DmActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        getContentResolver().unregisterContentObserver(downloadObserver);
+        if(downloadObserver!=null) {
+            getContentResolver().unregisterContentObserver(downloadObserver);
+        }
     }
 
     /**

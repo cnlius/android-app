@@ -22,7 +22,7 @@ import java.util.List;
  * Created by liu song on 2017/5/16.
  */
 
-public class ContentResolverActivity extends BaseActivity implements View.OnClickListener {
+public class ContentProviderActivity extends BaseActivity implements View.OnClickListener {
     private ActivityContentResolverBinding mBinding;
 
     @Override

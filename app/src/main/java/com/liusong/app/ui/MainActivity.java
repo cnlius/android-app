@@ -9,7 +9,7 @@ import android.view.View;
 import com.liusong.app.R;
 import com.liusong.app.base.BaseActivity;
 import com.liusong.app.databinding.ActivityMainBinding;
-import com.liusong.app.ui.ipc.ContentResolverActivity;
+import com.liusong.app.ui.ipc.ContentProviderActivity;
 import com.liusong.app.ui.ipc.IntentActivity;
 import com.liusong.app.ui.keyboard.ShowHideActivity;
 import com.liusong.app.ui.net.NetActivity;
@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 intent.setClass(this, ShowHideActivity.class);
                 break;
             case R.id.btn_content_resolver:
-                intent.setClass(this, ContentResolverActivity.class);
+                intent.setClass(this, ContentProviderActivity.class);
                 break;
             case R.id.btn_sqlite:
                 intent.setClass(this, SQLiteActivity.class);
