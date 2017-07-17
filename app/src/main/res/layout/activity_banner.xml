@@ -7,7 +7,7 @@
         android:orientation="vertical">
 
 
-        <FrameLayout
+        <!--<FrameLayout
             android:layout_width="match_parent"
             android:layout_height="160dp"
             android:layout_centerInParent="true"
@@ -21,7 +21,13 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:clipChildren="false" />
-        </FrameLayout>
+        </FrameLayout>-->
+
+        <com.liusong.app.widget.banner.BannerView
+            android:id="@+id/bv"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="#ff00ff"/>
     </LinearLayout>
 
 </layout>
