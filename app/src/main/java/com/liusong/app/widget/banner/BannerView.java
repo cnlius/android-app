@@ -5,11 +5,8 @@ import android.databinding.DataBindingUtil;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -25,7 +22,6 @@ import java.util.ArrayList;
 public class BannerView extends FrameLayout {
     private BannerViewBinding mBinding;
     private BannerAdapter mAdapter;
-    private ViewPager mViewPager;
 
 
     public BannerView(@NonNull Context context) {
@@ -60,7 +56,6 @@ public class BannerView extends FrameLayout {
         mBinding.vp.setPageMargin(20);
         mBinding.vp.setOffscreenPageLimit(3);
         mBinding.vp.setAdapter(mAdapter);
-
     }
 
 

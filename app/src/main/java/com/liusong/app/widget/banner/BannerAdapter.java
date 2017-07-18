@@ -6,17 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liusong on 2017/7/17.
  */
 
 public class BannerAdapter extends PagerAdapter {
-    private ArrayList<ImageView> viewList;
+    private List<ImageView> viewList;
     private OnBannerItemClickListener mClickListener;
 
-    public BannerAdapter(ArrayList<ImageView> viewList) {
+    public BannerAdapter(List<ImageView> viewList) {
         this.viewList = viewList;
     }
 
@@ -48,7 +48,7 @@ public class BannerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView(viewList.get(position));
+        container.removeView((View) object);
     }
 
     public void setOnBannerItemClickListener(OnBannerItemClickListener listener) {

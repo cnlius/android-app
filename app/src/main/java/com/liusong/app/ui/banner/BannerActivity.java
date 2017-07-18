@@ -1,6 +1,7 @@
 package com.liusong.app.ui.banner;
 
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
@@ -26,20 +27,11 @@ public class BannerActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_banner);
-//        mBinding.vp.setPageMargin(20);
-//        mBinding.vp.setOffscreenPageLimit(3);
         initBanner();
-//        mAdapter = new BannerAdapter(banners);
-//        mAdapter.setOnBannerItemClickListener(new OnBannerItemClickListener() {
-//            @Override
-//            public void call(int position) {
-//
-//            }
-//        });
-//        mBinding.vp.setAdapter(mAdapter);
+        mBinding.bv.setData(banners);
 
 //        mBinding.vp.setPageTransformer(true, new AlphaPageTransformer()); //????弘扬的库
-        mBinding.bv.setData(banners);
+
     }
 
     private void initBanner() {
@@ -47,7 +39,9 @@ public class BannerActivity extends BaseActivity {
         for (int i = 0; i < imgRes.length; i++) {
             ImageView imageView = new ImageView(this);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+//            String url="file:///android_asset/banner_"+(i+1)+".jpg";
             imageView.setImageResource(imgRes[i]);
+//            imageView.setImageURI(Uri.parse(url));
             banners.add(imageView);
         }
     }
