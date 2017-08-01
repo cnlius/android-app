@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lw.tp">
 
-    <!--极光推送（注意包名）-->
+    <!--极光推送（注意包名，清单文件的东西最好放在app里）-->
     <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="23" />
 
     <!-- Required -->
