@@ -10,7 +10,29 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        /*ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }*/
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("appkey.jks")
+            storePassword "android"
+            keyAlias "android"
+            keyPassword "android"
+            v2SigningEnabled true
+        }
+    }
+
     buildTypes {
         release {
             //打开混淆
@@ -25,22 +47,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            minifyEnabled true
-            zipAlignEnabled true
-            shrinkResources true
+            minifyEnabled false
+//            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
-    signingConfigs {
-        release {
-            storeFile file("appkey.jks")
-            storePassword "android"
-            keyAlias "android"
-            keyPassword "android"
-            v2SigningEnabled true
-        }
-    }
+
+
 
     dataBinding {
         enabled = true
@@ -56,6 +70,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile project(':library')
-
     compile 'tyrantgit:explosionfield:1.0.1'
+    compile project(':thirdparty')
 }

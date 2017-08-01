@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.liusong.app.utils.Constants;
@@ -65,6 +66,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Log.i("requestCode","requestCode="+requestCode);
         switch (requestCode) {
             case Constants.CALL_PHONE_CODE:
                 doCallPhone();
@@ -80,6 +82,10 @@ public class BaseActivity extends AppCompatActivity {
      */
     private void doGrantAll() {
         showToast("授权所有成功！");
+        permissionGranted();
+    }
+
+    public void permissionGranted(){
     }
 
     /**
