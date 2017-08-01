@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import com.liusong.app.R;
 import com.liusong.app.base.BaseActivity;
 import com.liusong.app.databinding.ActivityTpJpushBinding;
+import com.liusong.app.service.LiveService;
 import com.liusong.app.utils.Constants;
 
 /**
@@ -20,6 +21,12 @@ import com.liusong.app.utils.Constants;
 
 public class JPushActivity extends BaseActivity {
     private ActivityTpJpushBinding mBinding;
+
+    /**
+     * 黑色唤醒广播的action
+     */
+    private final static String BLACK_WAKE_ACTION = "com.wake.black";
+
     private static final int REQUEST_CODE_ASK_WRITE_SETTINGS = 0x16;
     private static final int REQUEST_CODE_ASK_SYSTEM_ALERT_WINDOW = 0x17;
 
@@ -41,8 +48,10 @@ public class JPushActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_tp_jpush);
         requestMustPermissions();
-        requestWriteSettings();
-        requestOverlay();
+//        requestWriteSettings();
+//        requestOverlay();
+
+        live();
     }
 
     private void requestOverlay() {
@@ -68,6 +77,19 @@ public class JPushActivity extends BaseActivity {
                 //有了权限，你要做什么呢？具体的动作
             }
         }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    //测试MyService;
+    public void live(){
+        Intent intent=new Intent(this,LiveService.class);
+        startService(intent); //启动
     }
 
 }
