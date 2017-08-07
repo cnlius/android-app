@@ -122,13 +122,7 @@
         <service
             android:name=".service.LiveService"
             android:enabled="true"
-            android:exported="false"
-            android:process=":gray" />
-        <service
-            android:name=".service.LiveService$GrayInnerService"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":gray" />
+            android:exported="false" />
 
     </application>
 
