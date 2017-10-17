@@ -36,10 +36,10 @@
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <!--banner-同时显示三个item-->
@@ -70,10 +70,6 @@
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -100,7 +96,8 @@
             android:name=".ui.db.SQLiteActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="SQLite"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+        </activity>
 
         <!--四大组件-->
         <!--ContentResolver-->

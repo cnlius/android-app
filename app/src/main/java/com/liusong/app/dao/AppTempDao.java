@@ -3,6 +3,7 @@ package com.liusong.app.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.liusong.library.sqlite.BaseDao;
 import com.liusong.library.sqlite.DbHelper;
@@ -18,17 +19,21 @@ import com.liusong.library.utils.ToastUtils;
 
 public class AppTempDao extends BaseDao {
     private Context context;
+    private DbHelper dbHelper=new DbHelper(context, "android.db", 1) {
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            super.onCreate(db);
+            String sql = "create table if not exists temp(id integer primary key autoincrement,name varchar(256),phone varchar(256))";
+            //这里有bug,setDbHelper时，db还没有设置给BaseDao,会db尚未创建异常
+            db.execSQL(sql);
+            Log.i("LOG_DB","init db");
+        }
+    };
 
     public AppTempDao(Context context) {
         this.context = context;
         //初始化数据库
-        setDbHelper(new DbHelper(context, "app.db", 1) {
-            @Override
-            public void onCreate(SQLiteDatabase db) {
-                super.onCreate(db);
-                execSQL("create table temp(id integer primary key autoincrement,name varchar(256),phone varchar(256))");
-            }
-        });
+        setDbHelper(dbHelper);
     }
 
 
